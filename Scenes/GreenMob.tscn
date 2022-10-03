@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Mob.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Art/GreenMob.png" type="Texture" id=2]
+
+[node name="Mob" instance=ExtResource( 1 )]
+damage = 2
+
+[node name="VisibilityNotifier2D" parent="." index="1"]
+position = Vector2( 1, 0.5 )
+scale = Vector2( 1.4, 1.45 )
+
+[node name="Sprite" parent="." index="2"]
+texture = ExtResource( 2 )
