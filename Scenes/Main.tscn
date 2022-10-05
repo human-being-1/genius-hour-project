@@ -23,7 +23,7 @@ wait_time = 2.0
 one_shot = true
 
 [node name="WaveTimer" type="Timer" parent="."]
-wait_time = 15.0
+wait_time = 20.0
 
 [node name="StartPosition" type="Position2D" parent="."]
 position = Vector2( 180, 135 )
@@ -36,8 +36,8 @@ curve = SubResource( 1 )
 [node name="MobSpawnPosition" type="PathFollow2D" parent="MobPath"]
 
 [node name="HUD" parent="." instance=ExtResource( 2 )]
-position = Vector2( -0.032967, 0 )
 scale = Vector2( 0.983516, 0.977941 )
+transform = Transform2D( 0.983516, 0, 0, 0.977941, 0, 0 )
 
 [connection signal="die" from="Player" to="." method="game_over"]
 [connection signal="hurt" from="Player" to="." method="_on_Player_hurt"]

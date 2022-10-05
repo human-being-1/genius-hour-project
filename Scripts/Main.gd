@@ -41,7 +41,7 @@ func _on_MobTimer_timeout():
 	direction += rand_range(-PI / 5, PI / 5)
 	#mob.rotation = direction
 	
-	var velocity = Vector2(rand_range(min_speed, max_speed), 0.0)
+	var velocity = Vector2(rand_range(min_speed, max_speed) + mob.speed_modifier, 0.0)
 	mob.linear_velocity = velocity.rotated(direction)
 	
 	add_child_below_node($Player, mob)
@@ -53,29 +53,30 @@ func _on_WaveTimer_timeout():
 	wave += 1
 	print("Wave " + str(wave))
 	
-	min_speed += 10.0
-	max_speed += 10.0
+	min_speed += 5.0
+	max_speed += 5.0
 	
-	if $MobTimer.wait_time >= 0.25:
+	if $MobTimer.wait_time >= 0.45 and wave % 2 == 0:
 		$MobTimer.wait_time -= 0.10
 	
-	if $HUD/ProgressBar.max_value >= $Player.health + 1:
+	if $HUD/ProgressBar.max_value >= $Player.health + 1 and wave % 2 == 0:
 		$Player.health += 1
+		$HUD/ProgressBar.value = $Player.health
 	
 	if wave == 5:
 		mobs.append(load("res://Scenes/GreenMob.tscn"))
 		$Player.health += 1
-		$HUD/ProgressBar.max_value = 7
-		
+		$HUD/ProgressBar.max_value = 6
+		$HUD/ProgressBar.value = $Player.health
 	
-	if wave == 7:
-		mobs.append(load("res://Scenes/GreenMob.tscn")) # Increases likelihood of green mobs spawning
+	if wave == 8:
 		mobs.append(load("res://Scenes/YellowMob.tscn"))
 		$Player.health += 2
-		$HUD/ProgressBar.max_value = 7
+		$HUD/ProgressBar.max_value = 8
+		$HUD/ProgressBar.value = $Player.health
 	
 	get_tree().call_group("mobs", "queue_free")
-	yield(get_tree().create_timer(0.5), "timeout")
+	yield(get_tree().create_timer(1), "timeout")
 	
 	$MobTimer.start()
 

@@ -2,7 +2,7 @@ extends Area2D
 signal die
 signal hurt
 
-export var speed = 225
+export var speed = 200
 var screen_size
 var health = 5
 var on_cooldown = false
@@ -45,14 +45,12 @@ func _on_Player_body_entered(body):
 	if not on_cooldown:
 		health -= body.damage
 		print(health)
+		emit_signal("hurt")
 		if health <= 0:
 			hide()
-			emit_signal("hurt")
 			emit_signal("die")
 			$CollisionShape2D.set_deferred("disabled", true)
 			return
-		
-		emit_signal("hurt")
 		$AnimatedSprite.play("hurt")
 		on_cooldown = true
 		yield(get_tree().create_timer(1.5), "timeout")
