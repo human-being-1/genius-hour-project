@@ -16,21 +16,21 @@ script = ExtResource( 1 )
 visible = false
 
 [node name="MobTimer" type="Timer" parent="."]
-wait_time = 0.75
+wait_time = 0.65
 
 [node name="StartTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
 
 [node name="WaveTimer" type="Timer" parent="."]
-wait_time = 20.0
+wait_time = 15.0
 
 [node name="StartPosition" type="Position2D" parent="."]
-position = Vector2( 180, 135 )
+position = Vector2( 320, 240 )
 
 [node name="MobPath" type="Path2D" parent="."]
 position = Vector2( -0.032967, 0 )
-scale = Vector2( 0.983516, 0.977941 )
+scale = Vector2( 0.983517, 0.977942 )
 curve = SubResource( 1 )
 
 [node name="MobSpawnPosition" type="PathFollow2D" parent="MobPath"]

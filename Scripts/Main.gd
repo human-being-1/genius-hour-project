@@ -53,13 +53,14 @@ func _on_WaveTimer_timeout():
 	wave += 1
 	print("Wave " + str(wave))
 	
-	min_speed += 5.0
-	max_speed += 5.0
+	if wave % 2 == 0:
+		min_speed += 5.0
+		max_speed += 5.0
 	
-	if $MobTimer.wait_time >= 0.45 and wave % 2 == 0:
+	if $MobTimer.wait_time >= 0.55 and wave % 2 == 0:
 		$MobTimer.wait_time -= 0.10
 	
-	if $HUD/ProgressBar.max_value >= $Player.health + 1 and wave % 2 == 0:
+	if $HUD/ProgressBar.max_value >= $Player.health + 1 and wave % 3 == 0:
 		$Player.health += 1
 		$HUD/ProgressBar.value = $Player.health
 	
@@ -73,6 +74,12 @@ func _on_WaveTimer_timeout():
 		mobs.append(load("res://Scenes/YellowMob.tscn"))
 		$Player.health += 2
 		$HUD/ProgressBar.max_value = 8
+		$HUD/ProgressBar.value = $Player.health
+	
+	if wave == 10:
+		mobs.append(load("res://Scenes/YellowMob.tscn"))
+		$Player.health += 2
+		$HUD/ProgressBar.max_value = 12
 		$HUD/ProgressBar.value = $Player.health
 	
 	get_tree().call_group("mobs", "queue_free")

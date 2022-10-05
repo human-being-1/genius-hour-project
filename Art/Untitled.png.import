@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/TealMob.png-85267b42011de647b88f3c238b1905e0.stex"
+path="res://.import/Untitled.png-2d3c2896464ac958339bb6b65fd266d8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/TealMob.png"
-dest_files=[ "res://.import/TealMob.png-85267b42011de647b88f3c238b1905e0.stex" ]
+source_file="res://Art/Untitled.png"
+dest_files=[ "res://.import/Untitled.png-2d3c2896464ac958339bb6b65fd266d8.stex" ]
 
 [params]
 
