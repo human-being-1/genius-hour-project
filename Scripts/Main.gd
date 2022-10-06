@@ -52,6 +52,7 @@ func _on_WaveTimer_timeout():
 	
 	wave += 1
 	print("Wave " + str(wave))
+	$HUD/WaveLabel.text = "Wave " + str(wave)
 	
 	if wave % 2 == 0:
 		min_speed += 5.0
