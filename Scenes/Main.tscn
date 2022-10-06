@@ -6,16 +6,16 @@
 
 [sub_resource type="Curve2D" id=1]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 366.067, 0, 0, 0, 0, 0, 366.067, 276.09, 0, 0, 0, 0, 0.0335195, 276.09, 0, 0, 0, 0, 0, 0 )
+"points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 488.078, 0, 0, 0, 0, 0, 488.078, 276.09, 0, 0, 0, 0, 0.0335195, 276.09, 0, 0, 0, 0, 0, 0 )
 }
 
 [node name="Main" type="Node"]
 script = ExtResource( 1 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_right = 360.0
+margin_right = 480.0
 margin_bottom = 270.0
-color = Color( 0, 0, 0.270588, 1 )
+color = Color( 0, 0.0941176, 0.215686, 1 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 visible = false
@@ -31,7 +31,7 @@ one_shot = true
 wait_time = 15.0
 
 [node name="StartPosition" type="Position2D" parent="."]
-position = Vector2( 180, 135 )
+position = Vector2( 240, 135 )
 
 [node name="MobPath" type="Path2D" parent="."]
 position = Vector2( -0.032967, 0 )
@@ -41,8 +41,6 @@ curve = SubResource( 1 )
 [node name="MobSpawnPosition" type="PathFollow2D" parent="MobPath"]
 
 [node name="HUD" parent="." instance=ExtResource( 2 )]
-scale = Vector2( 0.983516, 0.977941 )
-transform = Transform2D( 0.983516, 0, 0, 0.977941, 0, 0 )
 
 [connection signal="die" from="Player" to="." method="game_over"]
 [connection signal="hurt" from="Player" to="." method="_on_Player_hurt"]
