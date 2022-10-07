@@ -5,7 +5,7 @@
 
 [node name="Mob" instance=ExtResource( 2 )]
 damage = 3
-speed_modifier = -50
+speed_modifier = -30
 
 [node name="Sprite" parent="." index="2"]
 texture = ExtResource( 1 )
