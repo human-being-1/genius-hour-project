@@ -34,11 +34,10 @@ func _on_MobTimer_timeout():
 	var mob_spawn_location = get_node("MobPath/MobSpawnPosition")
 	mob_spawn_location.offset = randi()
 	
-	var direction = mob_spawn_location.rotation + PI / 2
-	
 	mob.position = mob_spawn_location.position
 	
-	direction += rand_range(-PI / 8, PI / 8)
+	var direction = atan2(mob.position.direction_to($Player.position).y, mob.position.direction_to($Player.position).x)
+	direction += rand_range(-PI / 5, PI / 5)
 	
 	var velocity = Vector2(rand_range(min_speed, max_speed) + mob.speed_modifier, 0.0)
 	mob.linear_velocity = velocity.rotated(direction)
