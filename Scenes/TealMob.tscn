@@ -7,6 +7,8 @@
 radius = 21.0238
 
 [node name="Mob" instance=ExtResource( 1 )]
+speed_modifier = 25
+accuracy = 4
 
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource( 1 )

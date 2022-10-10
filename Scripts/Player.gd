@@ -4,7 +4,7 @@ signal hurt
 
 export var speed = 175
 var screen_size
-var health = 5
+var health = 6
 var on_cooldown = false
 
 func _ready():
@@ -54,7 +54,7 @@ func _on_Player_body_entered(body):
 		$AnimatedSprite.play("hurt")
 		on_cooldown = true
 		yield(get_tree().create_timer(1.5), "timeout")
-		
+
 		on_cooldown = false
 		$AnimatedSprite.play("default")
 
