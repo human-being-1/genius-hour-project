@@ -21,7 +21,7 @@ color = Color( 0, 0.145098, 0.337255, 1 )
 visible = false
 
 [node name="MobTimer" type="Timer" parent="."]
-wait_time = 0.65
+wait_time = 0.75
 
 [node name="StartTimer" type="Timer" parent="."]
 wait_time = 2.0

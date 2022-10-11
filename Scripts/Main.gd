@@ -59,42 +59,27 @@ func _on_WaveTimer_timeout():
 	if $MobTimer.wait_time >= 0.55 and wave % 2 == 0:
 		$MobTimer.wait_time -= 0.10
 	
-	if $HUD/ProgressBar.max_value >= $Player.health + 1 and wave % 2 == 0:
-		$Player.health += 1
+	if wave % 4 == 0:
+		if wave <= 12: var modifier = 2
+		else: var modifier = 1
+		
+		$Player.health += 2
 		$HUD/ProgressBar.value = $Player.health
 	
-	if wave == 4:
-		mobs.append(load("res://Scenes/GreenMob.tscn"))
-		$Player.health += 2
-		$HUD/ProgressBar.max_value = 8
-		$HUD/ProgressBar.value = $Player.health
-	
-	if wave == 8:
-		mobs.append(load("res://Scenes/YellowMob.tscn"))
-		$Player.health += 2
-		$HUD/ProgressBar.max_value = 10
-		$HUD/ProgressBar.value = $Player.health
-	
-	if wave == 12:
-		mobs.append(load("res://Scenes/PurpleMob.tscn"))
-		$Player.health += 2
-		$HUD/ProgressBar.max_value = 12
-		$HUD/ProgressBar.value = $Player.health
-	
-	if wave == 16:
-		mobs.append(load("res://Scenes/TealMob.tscn"))
-		$Player.health += 2
-		$HUD/ProgressBar.max_value = 14
-		$HUD/ProgressBar.value = $Player.health
-	
-	if wave == 20:
-		mobs.append(load("res://Scenes/OrangeMob.tscn"))
-		$Player.health += 2
-		$HUD/ProgressBar.max_value = 14
-		$HUD/ProgressBar.value = $Player.health
+	match wave:
+		4:
+			mobs.append(load("res://Scenes/GreenMob.tscn"))
+		8:
+			mobs.append(load("res://Scenes/YellowMob.tscn"))
+		12:
+			mobs.append(load("res://Scenes/PurpleMob.tscn"))
+		16:
+			mobs.append(load("res://Scenes/TealMob.tscn"))
+		20:
+			mobs.append(load("res://Scenes/OrangeMob.tscn"))
 	
 	get_tree().call_group("mobs", "queue_free")
-	yield(get_tree().create_timer(1), "timeout")
+	#yield(get_tree().create_timer(1), "timeout")
 	
 	$MobTimer.start()
 
