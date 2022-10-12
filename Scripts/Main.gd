@@ -60,10 +60,12 @@ func _on_WaveTimer_timeout():
 		$MobTimer.wait_time -= 0.10
 	
 	if wave % 4 == 0:
-		if wave <= 12: var modifier = 2
-		else: var modifier = 1
+		var modifier
+		if wave <= 12: modifier = 2
+		else: modifier = 1
 		
-		$Player.health += 2
+		$Player.health += modifier
+		$HUD/ProgressBar.max_value += modifier
 		$HUD/ProgressBar.value = $Player.health
 	
 	match wave:
