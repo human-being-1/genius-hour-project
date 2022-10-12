@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/genius-hour-_2022_10_12_094844_0.png-00c97eb77fcad8cf30a5860cf17671d1.stex"
+path="res://.import/genius-hour-_2022_10_12_094620_0.png-18ad7f7ce23a87aa513cb6fea2fc33e2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://genius-hour-_2022_10_12_094844_0.png"
-dest_files=[ "res://.import/genius-hour-_2022_10_12_094844_0.png-00c97eb77fcad8cf30a5860cf17671d1.stex" ]
+source_file="res://Screenshots/genius-hour-_2022_10_12_094620_0.png"
+dest_files=[ "res://.import/genius-hour-_2022_10_12_094620_0.png-18ad7f7ce23a87aa513cb6fea2fc33e2.stex" ]
 
 [params]
 

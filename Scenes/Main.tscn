@@ -48,6 +48,7 @@ offset = Vector2( 240, 135 )
 script = ExtResource( 4 )
 shortcut_action = "take_screenshot"
 file_prefix = "genius-hour-"
+output_path = "res://Screenshots/"
 
 [connection signal="die" from="Player" to="." method="game_over"]
 [connection signal="hurt" from="Player" to="." method="_on_Player_hurt"]
