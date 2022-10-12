@@ -47,11 +47,11 @@ curve = SubResource( 1 )
 offset = Vector2( 240, 135 )
 script = ExtResource( 4 )
 shortcut_action = "take_screenshot"
-file_prefix = "geniu_-hour"
+file_prefix = "genius_hour"
 output_path = "res://Screenshots/"
 
 [connection signal="die" from="Player" to="." method="game_over"]
-[connection signal="hurt" from="Player" to="." method="_on_Player_hurt"]
+[connection signal="hit" from="Player" to="." method="_on_Player_hit"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_MobTimer_timeout"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_StartTimer_timeout"]
 [connection signal="timeout" from="WaveTimer" to="." method="_on_WaveTimer_timeout"]

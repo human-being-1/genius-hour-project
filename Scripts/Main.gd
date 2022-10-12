@@ -29,7 +29,11 @@ func _on_StartTimer_timeout():
 	$WaveTimer.start()
 
 func _on_MobTimer_timeout():
-	var mob = mobs[randi() % mobs.size()].instance()
+	var mob
+	if randi() % 100 == 0:
+		mob = load("res://Scenes/MedPack.tscn").instance()
+	else:
+		mob = mobs[randi() % mobs.size()].instance()
 	
 	var mob_spawn_location = get_node("MobPath/MobSpawnPosition")
 	mob_spawn_location.offset = randi()
@@ -86,5 +90,7 @@ func _on_WaveTimer_timeout():
 	$MobTimer.start()
 
 
-func _on_Player_hurt():
+func _on_Player_hit():
+	if $Player.health > $HUD/ProgressBar.max_value:
+		$Player.health -= 1
 	$HUD/ProgressBar.value = $Player.health

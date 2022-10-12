@@ -1,11 +1,12 @@
 extends Area2D
 signal die
-signal hurt
+signal hit
 
 export var speed = 175
 var screen_size
 var health = 6
 var on_cooldown = false
+var on_powerup_cooldown = false
 
 func _ready():
 	screen_size = get_viewport_rect().size
@@ -42,10 +43,16 @@ func _process(delta):
 
 
 func _on_Player_body_entered(body):
-	if not on_cooldown:
+	if body.powerup and not on_powerup_cooldown:
+		health += body.health_added
+		emit_signal("hit")
+		on_powerup_cooldown = true
+		yield(get_tree().create_timer(1.5), "timeout")
+		on_powerup_cooldown = false
+	elif not on_cooldown and not on_powerup_cooldown:
 		health -= body.damage
 		print(health)
-		emit_signal("hurt")
+		emit_signal("hit")
 		if health <= 0:
 			hide()
 			emit_signal("die")
