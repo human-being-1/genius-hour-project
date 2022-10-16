@@ -16,7 +16,7 @@ script = ExtResource( 1 )
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_right = 480.0
 margin_bottom = 270.0
-color = Color( 0, 0.12549, 0.294118, 1 )
+color = Color( 0, 0.176471, 0.415686, 1 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 visible = false

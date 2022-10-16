@@ -30,7 +30,7 @@ func _on_StartTimer_timeout():
 
 func _on_MobTimer_timeout():
 	var mob
-	if randi() % 100 == 0:
+	if randi() % 35 == 0:
 		mob = load("res://Scenes/MedPack.tscn").instance()
 	else:
 		mob = mobs[randi() % mobs.size()].instance()
@@ -74,17 +74,23 @@ func _on_WaveTimer_timeout():
 	
 	match wave:
 		4:
+			$ColorRect.color = Color8(80, 150, 70)
 			mobs.append(load("res://Scenes/GreenMob.tscn"))
 		8:
+			$ColorRect.color = Color8(150, 150, 70)
 			mobs.append(load("res://Scenes/YellowMob.tscn"))
 		12:
+			$ColorRect.color = Color8(70, 70, 150)
 			mobs.append(load("res://Scenes/PurpleMob.tscn"))
 		16:
+			$ColorRect.color = Color8(0, 50, 75)
 			mobs.append(load("res://Scenes/TealMob.tscn"))
 		20:
+			$ColorRect.color = Color8(185, 130, 65)
 			mobs.append(load("res://Scenes/OrangeMob.tscn"))
 	
 	get_tree().call_group("mobs", "queue_free")
+	get_tree().call_group("powerups", "queue_free")
 	#yield(get_tree().create_timer(1), "timeout")
 	
 	$MobTimer.start()

@@ -46,10 +46,8 @@ func _on_Player_body_entered(body):
 	if body.powerup and not on_powerup_cooldown:
 		health += body.health_added
 		emit_signal("hit")
-		on_powerup_cooldown = true
-		yield(get_tree().create_timer(1.5), "timeout")
-		on_powerup_cooldown = false
-	elif not on_cooldown and not on_powerup_cooldown:
+		body.queue_free()
+	if not body.powerup and not on_cooldown:
 		health -= body.damage
 		print(health)
 		emit_signal("hit")
