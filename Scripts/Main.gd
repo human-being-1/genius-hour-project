@@ -74,7 +74,7 @@ func _on_WaveTimer_timeout():
 	
 	match wave:
 		4:
-			$ColorRect.color = Color8(80, 150, 70)
+			$ColorRect.color = Color8(0, 120, 60)
 			mobs.append(load("res://Scenes/GreenMob.tscn"))
 		8:
 			$ColorRect.color = Color8(150, 150, 70)
@@ -83,7 +83,7 @@ func _on_WaveTimer_timeout():
 			$ColorRect.color = Color8(70, 70, 150)
 			mobs.append(load("res://Scenes/PurpleMob.tscn"))
 		16:
-			$ColorRect.color = Color8(0, 50, 75)
+			$ColorRect.color = Color8(0, 75, 100)
 			mobs.append(load("res://Scenes/TealMob.tscn"))
 		20:
 			$ColorRect.color = Color8(185, 130, 65)
