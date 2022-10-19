@@ -7,13 +7,13 @@
 
 [sub_resource type="Curve2D" id=1]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 488.078, 0, 0, 0, 0, 0, 488.078, 276.09, 0, 0, 0, 0, 0.0335195, 276.09, 0, 0, 0, 0, 0, 0 )
+"points": PoolVector2Array( 0, 0, 0, 0, 0.0335195, 0, 0, 0, 0, 0, 488.078, 0, 0, 0, 0, 0, 488.078, 276.09, 0, 0, 0, 0, 0.0335195, 276.09, 0, 0, 0, 0, 0.0335195, 0 )
 }
 
 [node name="Main" type="Node"]
 script = ExtResource( 1 )
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="."]
 margin_right = 480.0
 margin_bottom = 270.0
 color = Color( 0, 0.176471, 0.415686, 1 )
@@ -22,7 +22,7 @@ color = Color( 0, 0.176471, 0.415686, 1 )
 visible = false
 
 [node name="MobTimer" type="Timer" parent="."]
-wait_time = 0.75
+wait_time = 0.65
 
 [node name="StartTimer" type="Timer" parent="."]
 wait_time = 2.0
@@ -40,8 +40,11 @@ scale = Vector2( 0.983517, 0.977942 )
 curve = SubResource( 1 )
 
 [node name="MobSpawnPosition" type="PathFollow2D" parent="MobPath"]
+position = Vector2( 0.0335195, 0 )
+rotate = false
 
 [node name="HUD" parent="." instance=ExtResource( 2 )]
+visible = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2( 240, 135 )

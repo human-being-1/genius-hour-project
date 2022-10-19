@@ -4,19 +4,21 @@
 [ext_resource path="res://Art/TealMob.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 21.0238
+radius = 18.0
 
 [node name="Mob" instance=ExtResource( 1 )]
 speed_modifier = 25
 accuracy = 4
 
 [node name="CollisionShape2D" parent="." index="0"]
+position = Vector2( 0, 2.98023e-07 )
 shape = SubResource( 1 )
 
 [node name="VisibilityNotifier2D" parent="." index="1"]
-position = Vector2( 1, -1.49012e-06 )
-scale = Vector2( 2.1, 2.1 )
+position = Vector2( -1.13249e-06, -1.54972e-06 )
+scale = Vector2( 1.8, 1.8 )
 
 [node name="Sprite" parent="." index="2"]
-scale = Vector2( 1.5, 1.5 )
+position = Vector2( 0, 0 )
+scale = Vector2( 1.29, 1.29 )
 texture = ExtResource( 2 )

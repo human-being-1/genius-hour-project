@@ -5,7 +5,8 @@
 
 [node name="Mob" instance=ExtResource( 1 )]
 speed_modifier = 20
-accuracy = 10
+accuracy = 0
+direct = true
 
 [node name="Sprite" parent="." index="2"]
 texture = ExtResource( 2 )

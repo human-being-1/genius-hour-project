@@ -10,6 +10,7 @@ func _ready():
 	new_game()
 
 func game_over():
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	$MobTimer.stop()
 	$WaveTimer.stop()
 	$Player.hide()
@@ -18,7 +19,9 @@ func game_over():
 	
 
 func new_game():
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	$Player.show()
+	$HUD.show()
 	$Player.start($StartPosition.position)
 	$StartTimer.start()
 
@@ -30,7 +33,7 @@ func _on_StartTimer_timeout():
 
 func _on_MobTimer_timeout():
 	var mob
-	if randi() % 35 == 0:
+	if randi() % 45 == 0:
 		mob = load("res://Scenes/MedPack.tscn").instance()
 	else:
 		mob = mobs[randi() % mobs.size()].instance()
@@ -41,7 +44,8 @@ func _on_MobTimer_timeout():
 	mob.position = mob_spawn_location.position
 	
 	var direction = atan2(mob.position.direction_to($Player.position).y, mob.position.direction_to($Player.position).x)
-	direction += rand_range(-PI / mob.accuracy, PI / mob.accuracy)
+	if not mob.direct:
+		direction += rand_range(-PI / mob.accuracy, PI / mob.accuracy)
 	
 	var velocity = Vector2(rand_range(min_speed, max_speed) + mob.speed_modifier, 0.0)
 	mob.linear_velocity = velocity.rotated(direction)
@@ -74,19 +78,19 @@ func _on_WaveTimer_timeout():
 	
 	match wave:
 		4:
-			$ColorRect.color = Color8(0, 120, 60)
+			$Background.color = Color8(0, 120, 60)
 			mobs.append(load("res://Scenes/GreenMob.tscn"))
 		8:
-			$ColorRect.color = Color8(150, 150, 70)
+			$Background.color = Color8(150, 150, 70)
 			mobs.append(load("res://Scenes/YellowMob.tscn"))
 		12:
-			$ColorRect.color = Color8(70, 70, 150)
+			$Background.color = Color8(70, 70, 150)
 			mobs.append(load("res://Scenes/PurpleMob.tscn"))
 		16:
-			$ColorRect.color = Color8(0, 75, 100)
+			$Background.color = Color8(0, 75, 100)
 			mobs.append(load("res://Scenes/TealMob.tscn"))
 		20:
-			$ColorRect.color = Color8(185, 130, 65)
+			$Background.color = Color8(200, 80, 0)
 			mobs.append(load("res://Scenes/OrangeMob.tscn"))
 	
 	get_tree().call_group("mobs", "queue_free")

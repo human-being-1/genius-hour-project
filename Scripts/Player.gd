@@ -11,7 +11,7 @@ var on_powerup_cooldown = false
 func _ready():
 	screen_size = get_viewport_rect().size
 
-func _process(delta):
+func _process(_delta):
 #	var velocity = Vector2.ZERO
 #	if Input.is_action_pressed("move_up"):
 #		velocity.y -= 1
