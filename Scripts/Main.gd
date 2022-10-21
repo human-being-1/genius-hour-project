@@ -16,6 +16,7 @@ func game_over():
 	$Player.hide()
 	
 	get_tree().call_group("mobs", "queue_free")
+	get_tree().call_group("powerups", "queue_free")
 	
 
 func new_game():
@@ -27,7 +28,6 @@ func new_game():
 
 
 func _on_StartTimer_timeout():
-	print("Wave 1")
 	$MobTimer.start()
 	$WaveTimer.start()
 
@@ -57,7 +57,6 @@ func _on_WaveTimer_timeout():
 	$MobTimer.stop()
 	
 	wave += 1
-	print("Wave " + str(wave))
 	$HUD/WaveLabel.text = "Wave " + str(wave)
 	
 	if wave % 3 == 0:
