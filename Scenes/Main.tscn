@@ -44,7 +44,6 @@ position = Vector2( 0.0335195, 0 )
 rotate = false
 
 [node name="HUD" parent="." instance=ExtResource( 2 )]
-visible = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2( 240, 135 )
@@ -58,3 +57,4 @@ output_path = "res://Screenshots/"
 [connection signal="timeout" from="MobTimer" to="." method="_on_MobTimer_timeout"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_StartTimer_timeout"]
 [connection signal="timeout" from="WaveTimer" to="." method="_on_WaveTimer_timeout"]
+[connection signal="start_game" from="HUD" to="." method="new_game"]

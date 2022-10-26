@@ -7,19 +7,33 @@ var max_speed = 150.0
 
 func _ready():
 	randomize()
-	new_game()
+
 
 func game_over():
+	$HUD.show_message("Game Over!")
+	
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	$MobTimer.stop()
 	$WaveTimer.stop()
 	$Player.hide()
+	$Player.health = 6
 	
 	get_tree().call_group("mobs", "queue_free")
 	get_tree().call_group("powerups", "queue_free")
 	
+	yield($HUD/TitleTimer, "timeout")
+	$HUD/WaveLabel.hide()
+	$HUD/ProgressBar.value = 6
+	$HUD/ProgressBar.max_value = 6
+	$HUD/ProgressBar.hide()
+	$HUD/Title.text = "Attack of the Orbs"
+	$HUD/Title.show()
+	$HUD/StartButton.show()
+	
 
 func new_game():
+	$HUD.show_message("Get Ready!")
+	
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	$Player.show()
 	$HUD.show()
@@ -57,7 +71,7 @@ func _on_WaveTimer_timeout():
 	$MobTimer.stop()
 	
 	wave += 1
-	$HUD/WaveLabel.text = "Wave " + str(wave)
+	$HUD.update_wave(wave)
 	
 	if wave % 3 == 0:
 		min_speed += 5.0
