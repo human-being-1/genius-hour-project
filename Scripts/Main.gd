@@ -22,6 +22,7 @@ func game_over():
 	get_tree().call_group("powerups", "queue_free")
 	
 	yield($HUD/TitleTimer, "timeout")
+	$Background.color = Color8(0, 60, 100)
 	$HUD/WaveLabel.hide()
 	$HUD/ProgressBar.value = 6
 	$HUD/ProgressBar.max_value = 6
