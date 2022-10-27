@@ -20,6 +20,7 @@ color = Color( 0, 0.235294, 0.392157, 1 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 visible = false
+position = Vector2( 240, 161 )
 
 [node name="MobTimer" type="Timer" parent="."]
 wait_time = 0.65
@@ -30,9 +31,6 @@ one_shot = true
 
 [node name="WaveTimer" type="Timer" parent="."]
 wait_time = 15.0
-
-[node name="StartPosition" type="Position2D" parent="."]
-position = Vector2( 240, 135 )
 
 [node name="MobPath" type="Path2D" parent="."]
 position = Vector2( -0.032967, 0 )

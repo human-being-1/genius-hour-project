@@ -23,6 +23,12 @@ func game_over():
 	
 	yield($HUD/TitleTimer, "timeout")
 	$Background.color = Color8(0, 60, 100)
+	mobs = [load("res://Scenes/Mob.tscn")]
+	wave = 1
+	$HUD.update_wave(wave)
+	min_speed = 100.0
+	max_speed = 150.0
+	
 	$HUD/WaveLabel.hide()
 	$HUD/ProgressBar.value = 6
 	$HUD/ProgressBar.max_value = 6
@@ -38,7 +44,6 @@ func new_game():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	$Player.show()
 	$HUD.show()
-	$Player.start($StartPosition.position)
 	$StartTimer.start()
 
 

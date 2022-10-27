@@ -43,6 +43,7 @@ func _process(_delta):
 
 
 func _on_Player_body_entered(body):
+	print(on_cooldown)
 	if body.powerup and not on_powerup_cooldown:
 		health += body.health_added
 		emit_signal("hit")
@@ -54,7 +55,6 @@ func _on_Player_body_entered(body):
 		if health <= 0:
 			hide()
 			emit_signal("die")
-			$CollisionShape2D.set_deferred("disabled", true)
 			return
 		$AnimatedSprite.play("hurt")
 		on_cooldown = true
