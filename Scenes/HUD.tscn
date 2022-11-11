@@ -86,14 +86,13 @@ text = "Start"
 [node name="CreditsLabel" type="Label" parent="."]
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = -40.0
-margin_right = 172.0
-margin_bottom = -4.0
+margin_left = 3.0
+margin_top = -27.0
+margin_right = 171.0
+margin_bottom = -3.0
 custom_fonts/font = SubResource( 10 )
 text = "Created using Godot 3.5.1
-Font used is Novitiate by rare on itch.io
-Game licenced under the MIT licence"
+Font used is Novitiate by rare on itch.io"
 
 [connection signal="timeout" from="TitleTimer" to="." method="_on_TitleTimer_timeout"]
 [connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
