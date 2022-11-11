@@ -43,7 +43,6 @@ func _process(_delta):
 
 
 func _on_Player_body_entered(body):
-	print(on_cooldown)
 	if body.powerup and not on_powerup_cooldown:
 		health += body.health_added
 		emit_signal("hit")

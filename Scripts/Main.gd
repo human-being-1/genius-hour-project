@@ -36,6 +36,7 @@ func game_over():
 	$HUD/Title.text = "Attack of the Orbs"
 	$HUD/Title.show()
 	$HUD/StartButton.show()
+	$HUD/CreditsLabel.show()
 	
 
 func new_game():

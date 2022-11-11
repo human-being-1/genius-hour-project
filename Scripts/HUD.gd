@@ -26,6 +26,7 @@ func _on_TitleTimer_timeout():
 
 func _on_StartButton_pressed():
 	$StartButton.hide()
+	$CreditsLabel.hide()
 	$ProgressBar.show()
 	$WaveLabel.show()
 	$ProgressBar.show()
