@@ -16,10 +16,11 @@ size = 32
 font_data = SubResource( 5 )
 
 [sub_resource type="DynamicFontData" id=7]
+antialiased = false
 font_path = "res://Art/Novitiate.ttf"
 
 [sub_resource type="DynamicFont" id=8]
-size = 56
+size = 64
 font_data = SubResource( 7 )
 
 [sub_resource type="DynamicFontData" id=9]
@@ -57,8 +58,8 @@ align = 1
 anchor_top = 0.407407
 anchor_right = 1.0
 anchor_bottom = 0.592593
-margin_top = -25.0
-margin_bottom = -25.0
+margin_top = -29.0
+margin_bottom = -21.0002
 custom_fonts/font = SubResource( 8 )
 text = "Attack of the Orbs"
 align = 1
@@ -86,13 +87,15 @@ text = "Start"
 [node name="CreditsLabel" type="Label" parent="."]
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_left = 3.0
-margin_top = -27.0
-margin_right = 171.0
-margin_bottom = -3.0
+margin_left = 4.0
+margin_top = -47.0
+margin_right = 265.0
+margin_bottom = -4.0
 custom_fonts/font = SubResource( 10 )
 text = "Created using Godot 3.5.1
-Font used is Novitiate by rare on itch.io"
+Font used is Novitiate by rare on itch.io
+Licenced under the MIT licence, Copyright (c) 2022 b1ue64
+Uses Integer Resolution Handler, Copyright (c) 2020 Yukita Mayako"
 
 [connection signal="timeout" from="TitleTimer" to="." method="_on_TitleTimer_timeout"]
 [connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]

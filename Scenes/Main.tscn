@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/HUD.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scripts/screenshot.gd" type="Script" id=4]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -42,13 +41,6 @@ position = Vector2( 0.0335195, 0 )
 rotate = false
 
 [node name="HUD" parent="." instance=ExtResource( 2 )]
-
-[node name="Camera2D" type="Camera2D" parent="."]
-offset = Vector2( 240, 135 )
-script = ExtResource( 4 )
-shortcut_action = "take_screenshot"
-file_prefix = "genius_hour"
-output_path = "res://Screenshots/"
 
 [connection signal="die" from="Player" to="." method="game_over"]
 [connection signal="hit" from="Player" to="." method="_on_Player_hit"]
