@@ -80,14 +80,13 @@ func _on_WaveTimer_timeout():
 	wave += 1
 	$HUD.update_wave(wave)
 	
-	if wave % 3 == 0:
-		min_speed += 5.0
-		max_speed += 5.0
+	min_speed += 1.5
+	max_speed += 1.5
 	
 	if $MobTimer.wait_time >= 0.55 and wave % 2 == 0:
 		$MobTimer.wait_time -= 0.10
 	
-	if wave % 4 == 0:
+	if wave % 5 == 0:
 		var modifier
 		if wave <= 12: modifier = 2
 		else: modifier = 1
@@ -97,19 +96,19 @@ func _on_WaveTimer_timeout():
 		$HUD/ProgressBar.value = $Player.health
 	
 	match wave:
-		4:
+		5:
 			$Background.color = Color8(0, 120, 60)
 			mobs.append(load("res://Scenes/GreenMob.tscn"))
-		8:
+		10:
 			$Background.color = Color8(150, 150, 70)
 			mobs.append(load("res://Scenes/YellowMob.tscn"))
-		12:
+		15:
 			$Background.color = Color8(70, 70, 150)
 			mobs.append(load("res://Scenes/PurpleMob.tscn"))
-		16:
+		20:
 			$Background.color = Color8(0, 75, 100)
 			mobs.append(load("res://Scenes/TealMob.tscn"))
-		20:
+		25:
 			$Background.color = Color8(200, 80, 0)
 			mobs.append(load("res://Scenes/OrangeMob.tscn"))
 	
