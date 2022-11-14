@@ -88,7 +88,7 @@ func _on_WaveTimer_timeout():
 	
 	if wave % 5 == 0:
 		var modifier
-		if wave <= 12: modifier = 2
+		if wave <= 15: modifier = 2
 		else: modifier = 1
 		
 		$Player.health += modifier
