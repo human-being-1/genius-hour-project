@@ -28,6 +28,7 @@ func game_over():
 	$HUD.update_wave(wave)
 	min_speed = 100.0
 	max_speed = 150.0
+	$MobTimer.wait_time = 0.65
 	
 	$HUD/WaveLabel.hide()
 	$HUD/ProgressBar.value = 6
@@ -40,6 +41,10 @@ func game_over():
 	
 
 func new_game():
+	if $HUD/HardModeToggle.toggle_mode:
+		min_speed = 135.0
+		max_speed = 185.0
+		$MobTimer.wait_time = 0.50
 	$HUD.show_message("Get Ready!")
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)

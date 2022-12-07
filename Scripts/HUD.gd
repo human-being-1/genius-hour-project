@@ -13,6 +13,8 @@ func game_over():
 	
 	$Title.text = "Attack of the Orbs"
 	$Title.show()
+	$HardModeToggle.show()
+	$CreditsLabel.show()
 	
 	yield(get_tree().create_timer(1), "timeout")
 	
@@ -27,6 +29,7 @@ func _on_TitleTimer_timeout():
 func _on_StartButton_pressed():
 	$StartButton.hide()
 	$CreditsLabel.hide()
+	$HardModeToggle.hide()
 	$ProgressBar.show()
 	$WaveLabel.show()
 	$ProgressBar.show()
