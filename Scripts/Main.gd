@@ -2,8 +2,8 @@ extends Node
 
 var mobs = [load("res://Scenes/Mob.tscn")]
 var wave = 1
-var min_speed = 100.0
-var max_speed = 150.0
+var min_speed = 120.0
+var max_speed = 170.0
 
 func _ready():
 	randomize()
@@ -38,13 +38,15 @@ func game_over():
 	$HUD/Title.show()
 	$HUD/StartButton.show()
 	$HUD/CreditsLabel.show()
+	$HUD/HardModeToggle.show()
 	
 
 func new_game():
-	if $HUD/HardModeToggle.toggle_mode:
+	if $HUD/HardModeToggle.pressed:
 		min_speed = 135.0
 		max_speed = 185.0
 		$MobTimer.wait_time = 0.50
+		print("Hard mode on")
 	$HUD.show_message("Get Ready!")
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
