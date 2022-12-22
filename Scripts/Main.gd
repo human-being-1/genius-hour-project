@@ -63,6 +63,8 @@ func _on_MobTimer_timeout():
 	var mob
 	if randi() % 45 == 0:
 		mob = load("res://Scenes/MedPack.tscn").instance()
+	elif randi() % 45 == 0:
+		mob = load("res://Scenes/Shield.tscn").instance()
 	else:
 		mob = mobs[randi() % mobs.size()].instance()
 	

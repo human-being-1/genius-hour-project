@@ -7,6 +7,7 @@ var screen_size
 var health = 6
 var on_cooldown = false
 var on_powerup_cooldown = false
+var shield_on = false
 
 func _ready():
 	screen_size = get_viewport_rect().size
@@ -22,16 +23,24 @@ func _on_Player_body_entered(body):
 		health += body.health_added
 		emit_signal("hit")
 		body.queue_free()
-	if not body.powerup and not on_cooldown:
-		health -= body.damage
-		print(health)
-		emit_signal("hit")
-		if health <= 0:
-			hide()
-			emit_signal("die")
-			return
-		$AnimatedSprite.play("hurt")
-		on_cooldown = true
+	if body.shield and not shield_on:
+		shield_on = true
+		$ShieldSprite.show()
+		body.queue_free()
+	if not body.powerup and not body.shield and not on_cooldown:
+		if not shield_on:
+			health -= body.damage
+			print(health)
+			emit_signal("hit")
+			if health <= 0:
+				hide()
+				emit_signal("die")
+				return
+			$AnimatedSprite.play("hurt")
+			on_cooldown = true
+		if shield_on:
+			shield_on = false
+			$ShieldSprite.hide()
 		yield(get_tree().create_timer(1.5), "timeout")
 
 		on_cooldown = false
